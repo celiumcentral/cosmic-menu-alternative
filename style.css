@@ -1,0 +1,120 @@
+*, *:before, *:after {
+  box-sizing: border-box;
+  transition: 2s ease all;
+}
+
+html, body {
+  width: 100%;
+  height: calc(100% - 0px);
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-family: monospace; courier;
+}
+
+nav {
+  position: fixed;
+  width: auto;
+  bottom: 0;
+  padding: 16px;
+  z-index: 100;
+  background: rgba(223, 223, 223, 0.34);
+}
+nav .logo {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: #d00;
+  float: left;
+}
+nav .breadcrumb a {
+  color: #444;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+nav .breadcrumb a:hover {
+  color: #d40;
+}
+nav .breadcrumb a:hover:after {
+  color: #444;
+}
+nav .breadcrumb a:not(:last-child) {
+  margin-right: 1.25em;
+}
+nav .breadcrumb a:not(:last-child):after {
+  content: "•";
+  position: absolute;
+  display: inline-block;
+  margin: 0 0.5em;
+  pointer-events: none;
+}
+
+.feature {
+  position: relative;
+  width: calc(100% - 1 * 2 * 1px);
+  height: calc(100% - 1 * 2 * 1px);
+  /*margin: 1px;*/
+  background: #aaa;
+  overflow: hidden;
+}
+
+.flicker {
+ position: absolute;
+ top: 0;
+ left: 0;
+}
+
+.node {
+  position: absolute;
+  background: transparent url("") no-repeat 50% cover;
+  border: 1px #fff solid;
+  overflow: hidden;
+  opacity: 0.9;
+  transition: opacity 0.8s;
+  cursor: pointer;
+}
+.node .label {
+  display: inline;
+  color: rgba(255, 255, 255, 0.8);
+  position: absolute;
+  padding: 0;
+  margin: 0;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  transition: filter 0.8s;
+}
+.node.hide {
+  opacity: 0;
+  pointer-events: none;
+}
+.node.hide .label {
+  filter: blur(10px);
+}
+.node:hover {
+  background-color: #f5f5f5 !important;
+}
+.node:hover .label {
+  color: #555;
+}
+.node.level-0 {
+  z-index: 4;
+  font-size: 2em;
+  display: none;
+}
+.node.level-1 {
+  z-index: 3;
+  font-size: 2em;
+}
+.node.level-2 {
+  z-index: 2;
+  font-size: 1.8em;
+}
+.node.level-3 {
+  z-index: 1;
+  font-size: 1.6em;
+}
+.node.level-4 {
+  z-index: 0;
+  font-size: 1.4em;
+}
